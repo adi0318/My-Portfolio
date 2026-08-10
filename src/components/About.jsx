@@ -22,7 +22,7 @@ const About = () => {
         
           <div className="about-text space-y-6">
             <p className="text-lg leading-relaxed text-neutral-400">
-              I'm an AI/ML and web developer interested in building useful
+              I'm Adiya Soni, an AI/ML and web developer interested in building useful
               applications that combine intelligent systems with modern
               interfaces.
             </p>
