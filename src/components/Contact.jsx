@@ -31,7 +31,7 @@ const Contact = () => {
               href="mailto:adityasoniji4555@gmil.com"
               className="contact-email group mb-10 inline-flex w-fit items-center gap-3 border-b border-neutral-700 pb-2 text-lg text-neutral-300 transition-colors duration-300 hover:border-[#B6FF5C] hover:text-white"
             >
-              adityasoniji4555@gmil.com
+              adityasoniji4555@gmail.com
               <span className="transition-transform duration-300 group-hover:translate-x-1">
                 ↗
               </span>
