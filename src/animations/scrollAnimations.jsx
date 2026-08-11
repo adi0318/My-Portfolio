@@ -31,13 +31,13 @@ export const aboutAnimation = (container) => {
         {
           opacity: 0,
           y: 40,
-          duration: 0.7,
-          stagger: 0.15,
+          duration: 0.3,
+          stagger: 0.25,
           ease: "power2.out",
         },
         "-=0.3"
       );
-      
+
     gsap.from(".education-item", {
       opacity: 0,
       y: 40,
@@ -53,7 +53,7 @@ export const aboutAnimation = (container) => {
     });
 
     ScrollTrigger.create({
-      trigger: ".about-section",
+      trigger: [".about-section"],
       start: "top 80%",
 
       toggleActions: "play none none reverse",

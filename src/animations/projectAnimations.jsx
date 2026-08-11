@@ -5,6 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const projectsAnimation = (container) => {
   const ctx = gsap.context(() => {
+
     const headerTl = gsap.timeline({
       paused: true,
     });
@@ -45,6 +46,7 @@ export const projectsAnimation = (container) => {
 
     const cards = gsap.utils.toArray(".project-card");
 
+
     cards.forEach((card, index) => {
       if (index === cards.length - 1) return;
 
@@ -61,11 +63,38 @@ export const projectsAnimation = (container) => {
     });
 
     cards.forEach((card) => {
+      const image = card.querySelector(".project-image");
+
+      if (!image) return;
+
+      gsap.fromTo(
+        image,
+        {
+          scale: 1,
+          opacity: 0.12,
+        },
+        {
+          scale: 1.08,
+          opacity: 0.3,
+          ease: "none",
+
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 1,
+          },
+        }
+      );
+    });
+
+    cards.forEach((card) => {
       const orb = card.querySelector(".project-orb");
       const orbit = card.querySelector(".project-orbit");
       const smallOrb = card.querySelector(".project-orb-small");
 
-   
+      if (!orb || !smallOrb) return;
+
       const handleMouseEnter = () => {
         gsap.to(orb, {
           rotation: -360,
@@ -85,7 +114,7 @@ export const projectsAnimation = (container) => {
 
         gsap.to(smallOrb, {
           scale: 1.3,
-          x: 25,
+          x: 10,
           y: -20,
           duration: 0.5,
           ease: "power2.out",
@@ -132,17 +161,22 @@ export const projectsAnimation = (container) => {
     });
   }, container);
 
-
   return () => {
     const cards = gsap.utils.toArray(".project-card");
 
     cards.forEach((card) => {
       if (card._handleMouseEnter) {
-        card.removeEventListener("mouseenter", card._handleMouseEnter);
+        card.removeEventListener(
+          "mouseenter",
+          card._handleMouseEnter
+        );
       }
 
       if (card._handleMouseLeave) {
-        card.removeEventListener("mouseleave", card._handleMouseLeave);
+        card.removeEventListener(
+          "mouseleave",
+          card._handleMouseLeave
+        );
       }
 
       delete card._handleMouseEnter;

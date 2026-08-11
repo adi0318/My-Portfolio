@@ -1,3 +1,7 @@
+import jarvisImage from "../assets/jarvis.png";
+import skymartImage from "../assets/skymart.png";
+import linkedinImage from "../assets/linkedin.png";
+
 const projects = [
   {
     number: "01",
@@ -6,6 +10,7 @@ const projects = [
     description:
       "An intelligent application focused on doing tasks related to your device and using AI for general queries.",
     technologies: ["Python", "Machine Learning", "Speech Recognition"],
+    image: jarvisImage,
     github: "https://github.com/adi0318/Jarvis_Bot",
     liveLink: "https://github.com/adi0318/Jarvis_Bot",
   },
@@ -17,6 +22,7 @@ const projects = [
     description:
       "A modern web application built with React, JavaScript and responsive frontend technologies.",
     technologies: ["React", "JavaScript", "Tailwind CSS"],
+    image: skymartImage,
     github: "https://github.com/adi0318/SkyMart-Project",
     liveLink: "https://sky-mart-project-beta.vercel.app/",
   },
@@ -28,6 +34,7 @@ const projects = [
     description:
       "A Figma design exploring a modern and cleaner user interface for LinkedIn.",
     technologies: ["Figma", "Canva"],
+    image: linkedinImage,
     github: "https://github.com/adi0318/LinkedIn-Redesigned",
     liveLink:
       "https://www.figma.com/proto/rFbO60MO7BkB8RuX8XUfOh/LinkedIn-Redesigned?node-id=5-1053&t=yN7Gvg7rMywlynfK-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
@@ -41,7 +48,6 @@ const Projects = () => {
       className="projects-section border-t border-neutral-900 px-6 py-32 md:py-40"
     >
       <div className="mx-auto max-w-7xl">
-
         <div className="mb-20 flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div>
             <p className="projects-label mb-5 text-sm uppercase tracking-[0.3em] text-[#B6FF5C]">
@@ -61,7 +67,6 @@ const Projects = () => {
           </p>
         </div>
 
-
         <div className="projects-list">
           {projects.map((project) => (
             <article
@@ -69,10 +74,9 @@ const Projects = () => {
               style={{
                 zIndex: Number(project.number),
               }}
-              className="project-card rounded group sticky top-20 overflow-hidden border border-neutral-800 bg-[#0a0a0a]"
+              className="project-card group sticky top-20 overflow-hidden rounded border border-neutral-800 bg-[#0a0a0a]"
             >
               <div className="grid min-h-125 md:grid-cols-[1fr_1.3fr]">
-        
                 <div className="flex flex-col justify-between p-8 md:p-12">
                   <div>
                     <div className="mb-10 flex items-center justify-between">
@@ -93,22 +97,20 @@ const Projects = () => {
                       {project.description}
                     </p>
                   </div>
-                  <div className="mt-12 flex flex-col gap-6">
 
+                  <div className="mt-12 flex flex-col gap-6">
                     <div className="flex flex-wrap gap-3">
                       {project.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border  border-neutral-800 px-4 py-2 text-xs text-neutral-400 transition-colors duration-300 hover:text-white"
+                          className="rounded-full border border-neutral-800 px-4 py-2 text-xs text-neutral-400 transition-colors duration-300 hover:text-white"
                         >
                           {technology}
                         </span>
                       ))}
                     </div>
 
-          
                     <div className="flex items-center gap-6">
-          
                       <a
                         href={project.github}
                         target="_blank"
@@ -118,7 +120,6 @@ const Projects = () => {
                         GitHub ↗
                       </a>
 
-       
                       {project.liveLink !== project.github && (
                         <a
                           href={project.liveLink}
@@ -136,16 +137,22 @@ const Projects = () => {
                 </div>
 
                 <div className="project-visual relative min-h-75 overflow-hidden border-t border-neutral-800 bg-[#111] md:border-l md:border-t-0">
-                  <div className="absolute inset-0 flex items-center justify-center">
-             
-                    <div className="project-orb relative h-40 w-40 rounded-full border border-neutral-400 border-dashed bg-[#0a0a0a] md:h-56 md:w-56">
-             
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    className="project-image absolute inset-0 h-full w-full object-cover opacity-20"
+                  />
+
+                  <div className="absolute inset-0 bg-[#111]/60" />
+
+                  <div className="project-orb-wrapper absolute right-8 top-8">
+                    <div className="project-orb relative h-32 w-32 rounded-full border border-neutral-400/50 border-dashed md:h-40 md:w-40">
                       <div className="project-orbit absolute inset-0">
                         <div className="project-orb-highlight absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#B6FF5C]" />
                       </div>
                     </div>
 
-                    <div className="project-orb-small absolute h-20 w-20 rounded-full bg-[#B6FF5C] opacity-80" />
+                    <div className="project-orb-small absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#B6FF5C] opacity-80" />
                   </div>
 
                   <a
